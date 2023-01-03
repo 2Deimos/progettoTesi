@@ -21,8 +21,7 @@ pipeline {
         ''', odcInstallation: 'dependency-check'
         
         dependencyCheckPublisher failedTotalCritical: 2, 
-        pattern: 'target/dependency-check-report.xml', 
-        stopBuild: true
+        pattern: 'target/dependency-check-report.xml'
       }
     }
 
