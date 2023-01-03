@@ -9,8 +9,8 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>net.javaguides</groupId>
-	<artifactId>registration-login-spring-boot-security-thymeleaf</artifactId>
+	<groupId>org.deimos</groupId>
+	<artifactId>demoAppTesi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>registration-login-spring-boot-security-thymeleaf</name>
 	<description>Demo project for Spring Boot Thymeleaf and Hibernate </description>
