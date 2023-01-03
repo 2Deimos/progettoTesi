@@ -14,14 +14,14 @@ pipeline {
         dependencyCheck additionalArguments: '''
         --project 'demoAppTesi'
         --scan target/*.jar
-        --out target/dependency-check-report.xml
-        --format XML
+        --out target/
+        --format ALL
         --prettyPrint
         --suppression owasp-suppressions.xml
         ''', odcInstallation: 'dependency-check'
         
-        dependencyCheckPublisher failedTotalCritical: 2, 
-        pattern: 'target/dependency-check-report.xml'
+        dependencyCheckPublisher pattern: 'target/dependency-check-report.xml',
+        stopBuild: true
       }
     }
 
