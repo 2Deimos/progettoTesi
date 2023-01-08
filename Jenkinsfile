@@ -9,7 +9,7 @@ pipeline {
         }
     }
 
-    stage ('Analisi delle dipendenze (OWASP DEPENDENCY CHECK)') {
+    stage ('Analisi OWASP Dependency Check') {
       steps {
         dependencyCheck additionalArguments: '''
         --project 'demoAppTesi'
@@ -18,7 +18,7 @@ pipeline {
         --format ALL
         --prettyPrint
         --suppression owasp-suppressions.xml
-        ''', odcInstallation: 'dependency-check'
+        ''', odcInstallation: 'dependency-check-tool'
         
         dependencyCheckPublisher pattern: 'target/dependency-check-report.xml',
         stopBuild: true
@@ -27,7 +27,7 @@ pipeline {
 
     stage("Analisi SonarQube") {
       steps {
-        withSonarQubeEnv('sonarqube-9.7.1') {
+        withSonarQubeEnv('sonarqube-server') {
           bat 'mvn sonar:sonar'
           }
         }
