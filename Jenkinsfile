@@ -18,7 +18,7 @@ pipeline {
         --format ALL
         --prettyPrint
         --suppression owasp-suppressions.xml
-        ''', odcInstallation: 'dependency-check'
+        ''', odcInstallation: 'dependency-check-tool'
         
         dependencyCheckPublisher pattern: 'target/dependency-check-report.xml',
         stopBuild: true
