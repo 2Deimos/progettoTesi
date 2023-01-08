@@ -9,7 +9,7 @@ pipeline {
         }
     }
 
-    stage ('Analisi delle dipendenze (OWASP DEPENDENCY CHECK)') {
+    stage ('Analisi OWASP Dependency Check') {
       steps {
         dependencyCheck additionalArguments: '''
         --project 'demoAppTesi'
