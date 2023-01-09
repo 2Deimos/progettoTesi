@@ -43,7 +43,7 @@ pipeline {
 
     stage("Build Docker Image") {
       steps {
-        bat 'docker build -t drew/demoAppTesi:{env.$BUILD_NUMBER} .'
+        bat 'docker build -t drew/demoAppTesi:build-%BUILD_NUMBER% .'
       }
     }
   }
