@@ -43,7 +43,7 @@ pipeline {
 
     stage("Build Docker Image") {
       steps {
-        bat "docker build -t drew/demoapptesi ."
+        bat 'docker build -t drew/demoAppTesi:$BUILD_NUMBER .'
       }
-  }
+    }
 }
