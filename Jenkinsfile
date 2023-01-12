@@ -40,5 +40,20 @@ pipeline {
         }
       }
     }
+
+    stage("Build Docker Image") {
+      steps {
+        bat 'docker build -t drew/demoapptesi:build-%BUILD_NUMBER% .'
+      }
+    }
+
+    stage("Push Docker Image") {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'DockerCredentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USER')]) {
+          bat 'docker login --username %DOCKER_USER% --password %DOCKER_PASSWORD%'
+          bat 'docker push 2deimos/demoapptesi:build-%BUILD_NUMBER%'
+        }
+      }
+    }
   }
 }
