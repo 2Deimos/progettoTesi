@@ -48,12 +48,18 @@ pipeline {
     }
 
     stage("Build Docker Image") {
+      when {
+        branch 'main'
+      }
       steps {
         bat 'docker build -t 2deimos/demoapptesi:%BRANCH_NAME%-build-%BUILD_NUMBER% .'
       }
-    }
+   }
 
     stage("Push Docker Image") {
+      when {
+        branch 'main'
+      }
       steps {
         withCredentials([usernamePassword(credentialsId: 'DockerCredentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USER')]) {
           bat 'docker login --username %DOCKER_USER% --password %DOCKER_PASSWORD%'
