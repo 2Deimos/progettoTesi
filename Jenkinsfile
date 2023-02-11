@@ -8,6 +8,12 @@ pipeline {
           bat 'mvn clean install -DskipTests'
         }
     }
+    
+        stage("Test") {
+      steps {
+          bat 'mvn test'
+        }
+    }
 
     stage ('Analisi OWASP Dependency Check') {
       steps {
@@ -43,7 +49,7 @@ pipeline {
 
     stage("Build Docker Image") {
       steps {
-        bat 'docker build -t drew/demoapptesi:build-%BUILD_NUMBER% .'
+        bat 'docker build -t 2deimos/demoapptesi:build-%BUILD_NUMBER% .'
       }
     }
 
