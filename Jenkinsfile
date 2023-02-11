@@ -49,7 +49,7 @@ pipeline {
 
     stage("Build Docker Image") {
       steps {
-        bat 'docker build -t 2deimos/demoapptesi:build-%BUILD_NUMBER% .'
+        bat 'docker build -t 2deimos/demoapptesi:%BRANCH_NAME%-build-%BUILD_NUMBER% .'
       }
     }
 
@@ -57,7 +57,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'DockerCredentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USER')]) {
           bat 'docker login --username %DOCKER_USER% --password %DOCKER_PASSWORD%'
-          bat 'docker push 2deimos/demoapptesi:build-%BUILD_NUMBER%'
+          bat 'docker push 2deimos/demoapptesi:%BRANCH_NAME%-build-%BUILD_NUMBER%'
         }
       }
     }
