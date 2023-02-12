@@ -2,7 +2,7 @@
 <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
     <suppress>
         <notes><![CDATA[
-        Sopprime il CVE critico relativo alla dipendenza spring-web, poichè non inerente alla nostra implementazione.
+        Sopprim il CVE critico relativo alla dipendenza spring-web, poichè non inerente alla nostra implementazione.
         ]]></notes>
         <sha1>0193f5276092d9cbe3222c63885b47ca7b2cce97</sha1>
         <cve>CVE-2016-1000027</cve>
